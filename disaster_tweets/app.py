@@ -27,7 +27,7 @@ def eda_index():
 @app.route('/performance', methods=['GET'])
 def performance_index():
 
-    file_path=os.path.join("..","..","data","nlp-disaster","train.csv")
+    file_path=os.path.join("data","train.csv")
     data=pd.read_csv(file_path)
     result=pickle.load(open("data/location.pkl","rb"))
     new_result=pd.DataFrame(result)
@@ -64,7 +64,7 @@ def performance_index():
 
 @app.route('/predictions', methods=['GET'])
 def predictions_index():
-    file_path=os.path.join("..","..","data","nlp-disaster","train.csv")
+    file_path=os.path.join("data","test.csv")
     data=pd.read_csv(file_path)
     rownb=randint(0, len(data["text"]))
     sample=data["text"][rownb]
