@@ -61,52 +61,42 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Home</a>
+      <a class="navbar-brand" href="{{ url_for('home_index') }}">Home</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">EDA</a></li>
-        <li><a href="#">Performance</a></li>
-        <li><a href="#">Prediction</a></li>
+        <li><a href="{{ url_for('eda_index') }}">EDA</a></li>
+        <li><a href="{{ url_for('performance_index') }}">Performance</a></li>
+        <li><a href="{{ url_for('predictions_index') }}">Prediction</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
 <!-- First Container -->
-<div class="container-fluid bg-1 text-center">
-  <h3 class="margin">The problem</h3>
-  <img src="bird.jpg" class="img-responsive img-circle margin" style="display:inline" alt="Bird" width="350" height="350">
-  <h3>How to predict whether tweets are truly describing catastrophic events or using figures of speech</h3>
+<div class="column">
+  <h3 style= "color: #555555;" class="margin">Sample</h3>
+  <h3 style= "color: #555555;">{{ data[0]}}</h3>
 </div>
+<div class="column">
+  <div class="container-fluid bg-1 text-center">
+    <h3 class="margin">RFC prediction</h3>
+    <h3>{{ data[1][0]}}</h3>
+  </div>
 
-<!-- Second Container -->
-<div class="container-fluid bg-2 text-center">
-  <h3 class="margin">What is the data?</h3>
-  <p>The training and test data is constituted of close to 8,000 tweets incorporating text, tweet id, location and a keyword as well as a manually determined target variable.</p>
-  <a href="#" class="btn btn-default btn-lg">
-    <span class="glyphicon glyphicon-search"></span> Search
-  </a>
-</div>
+  <!-- Second Container -->
+  <div class="container-fluid bg-2 text-center">
+    <h3 class="margin">LGB prediction</h3>
+    <p>{{ data[1][1]}}</p>
+  </div>
 
-<!-- Third Container (Grid) -->
-<div class="container-fluid bg-3 text-center">
-  <h3 class="margin">Project methodology</h3><br>
-  <div class="row">
-    <div class="col-sm-4">
-      <p>Step 1</p>
-      <img src="birds1.jpg" class="img-responsive margin" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-4">
-      <p>Step 2</p>
-      <img src="birds2.jpg" class="img-responsive margin" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-4">
-      <p>Step 3</p>
-      <img src="birds3.jpg" class="img-responsive margin" style="width:100%" alt="Image">
-    </div>
+  <!-- Third Container (Grid) -->
+  <div class="container-fluid bg-3 text-center">
+    <h3 class="margin">TNN prediction</h3>
+    <p>{{ data[1][2]}}</p>
   </div>
 </div>
+
 
 <footer class="container-fluid bg-4 text-center">
   <p>Bootstrap Theme Made By <a href="NicolasRoux">Nicolas Roux</a></p>
